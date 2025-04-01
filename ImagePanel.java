@@ -28,11 +28,11 @@ public class ImagePanel extends JPanel {
             this.value = value;
 
             if (player == 2) {
-                image = new ImageIcon(getClass().getResource("cardBack.png")).getImage();
+                image = new ImageIcon(getClass().getResource("/images/cardBack.png")).getImage();
             } else if (player > 0) {
-                image = new ImageIcon(getClass().getResource("sideCard.png")).getImage();
+                image = new ImageIcon(getClass().getResource("/images/sideCard.png")).getImage();
             } else {
-                image = new ImageIcon(getClass().getResource("blankCard.png")).getImage();
+                image = new ImageIcon(getClass().getResource("/images/blankCard.png")).getImage();
             }
 
             setOpaque(false);
@@ -99,7 +99,7 @@ public class ImagePanel extends JPanel {
         }
         public void played() {
             played = true;
-            image = new ImageIcon(getClass().getResource("cardBack.png")).getImage();
+            image = new ImageIcon(getClass().getResource("/images/cardBack.png")).getImage();
         }
         public boolean draw(Graphics g, ImageObserver observer) {
             g.drawImage(image, getX(true), getY(true), getCardWidth(), getCardHeight(), observer);
@@ -144,7 +144,7 @@ public class ImagePanel extends JPanel {
 
                     for (int j = 0; j < iterations; j++) {
                         ghostMarbles[i * 7 + j] = new Marble(0, "Green");
-                        ghostMarbles[i * 7 + j].image = new ImageIcon(getClass().getResource("ghost_marble.png")).getImage();
+                        ghostMarbles[i * 7 + j].image = new ImageIcon(getClass().getResource("/images/ghost_marble.png")).getImage();
 
                         ghostMarbles[i * 7 + j].in_play = currentMarble.in_play;
                         ghostMarbles[i * 7 + j].home = currentMarble.home;
@@ -157,7 +157,7 @@ public class ImagePanel extends JPanel {
 
                     for (int j = 0; j < iterations; j++) {
                         ghostMarbles[i * 7 + j] = new Marble(0, "Green");
-                        ghostMarbles[i * 7 + j].image = new ImageIcon(getClass().getResource("ghost_marble.png")).getImage();
+                        ghostMarbles[i * 7 + j].image = new ImageIcon(getClass().getResource("/images/ghost_marble.png")).getImage();
 
                         ghostMarbles[i * 7 + j].in_play = currentMarble.in_play;
                         ghostMarbles[i * 7 + j].home = currentMarble.home;
@@ -217,13 +217,13 @@ public class ImagePanel extends JPanel {
         private boolean home;
         public Marble(int player, String color) {
             if (color.compareTo("Red") == 0) {
-                this.image = new ImageIcon(getClass().getResource("red_marble.png")).getImage();
+                this.image = new ImageIcon(getClass().getResource("/images/red_marble.png")).getImage();
             } else if (color.compareTo("Blue") == 0) {
-                this.image = new ImageIcon(getClass().getResource("blue_marble.png")).getImage();
+                this.image = new ImageIcon(getClass().getResource("/images/blue_marble.png")).getImage();
             } else if (color.compareTo("Green") == 0) {
-                this.image = new ImageIcon(getClass().getResource("green_marble.png")).getImage();
+                this.image = new ImageIcon(getClass().getResource("/images/green_marble.png")).getImage();
             } else if (color.compareTo("Orange") == 0) {
-                this.image = new ImageIcon(getClass().getResource("orange_marble.png")).getImage();
+                this.image = new ImageIcon(getClass().getResource("/images/orange_marble.png")).getImage();
             }
             this.player = player;
         }
@@ -324,7 +324,7 @@ public class ImagePanel extends JPanel {
     private Marble swappingMarble = null;
     public ImagePanel() {
         // Load the image from the given file path
-        board = new ImageIcon(getClass().getResource("board16.png")).getImage();  // You can replace this with ImageIO if needed
+        board = new ImageIcon(getClass().getResource("/images/board16.png")).getImage();  // You can replace this with ImageIO if needed
         setOpaque(false);
 
         cardValues.put("A", 1);
@@ -561,7 +561,7 @@ public class ImagePanel extends JPanel {
                 }
                 if (!ghost) {
                     ghostMarbles[0] = new Marble(0, "Green");
-                    ghostMarbles[0].image = new ImageIcon(getClass().getResource("ghost_marble.png")).getImage();
+                    ghostMarbles[0].image = new ImageIcon(getClass().getResource("/images/ghost_marble.png")).getImage();
                     ghostMarbles[0].in_play = true;
 
                     ghostMarbles[0].setSpot(marble.getSpot());
@@ -906,12 +906,12 @@ public class ImagePanel extends JPanel {
         }
 
         if (pile == null) {
-            pile = new NonPlayableCard("", "blankCard.png", 70);
+            pile = new NonPlayableCard("", "/images/blankCard.png", 70);
         }
         pile.draw(g, this);
 
         if (dealerStack == null) {
-            dealerStack = new NonPlayableCard("8", "cardBack.png", 70);
+            dealerStack = new NonPlayableCard("8", "/images/cardBack.png", 70);
             if (dealer == 3) {
                 dealerStack.setX(getWidth() - dealerStack.height * 5 / 7 - 1);
                 dealerStack.setY(1);
